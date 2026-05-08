@@ -5,6 +5,12 @@
 (function () {
   'use strict';
 
+  // Desactiva scroll restoration del browser para que siempre arranque en el top
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // ---------- Poster del hero según viewport ----------
   const heroVideo = document.querySelector('.hero__video');
   if (heroVideo) {
