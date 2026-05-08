@@ -5,11 +5,13 @@
 (function () {
   'use strict';
 
-  // Desactiva scroll restoration del browser para que siempre arranque en el top
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-  window.scrollTo(0, 0);
+  // Fuerza scroll al top después de que el browser aplica su restauración
+  // pageshow dispara tras bfcache y scroll restoration — más fiable que scrollTo en carga
+  window.addEventListener('pageshow', function () {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  });
 
   // ---------- Poster del hero según viewport ----------
   const heroVideo = document.querySelector('.hero__video');
