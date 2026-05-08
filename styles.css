@@ -29,7 +29,7 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: clip; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 body {
   background: var(--bg);
   color: var(--fg);
@@ -612,7 +612,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: #f4f4f4;
   padding: clamp(100px, 22vw, 200px) var(--pad-x);
   position: relative;
-  overflow: hidden;
+  overflow: clip;
   border-top: 1px solid var(--rule-on-dark);
 }
 .cta__mark {
